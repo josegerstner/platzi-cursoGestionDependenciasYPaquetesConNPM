@@ -1,0 +1,24 @@
+{
+  "name": "jsnpm",
+  "version": "1.0.0",
+  "description": "Construir un paquete para node",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josegerstner/platzi-cursoGestionDependenciasYPaquetesConNPM.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "package"
+  ],
+  "author": "Jose Gerstner #josegerstner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/josegerstner/platzi-cursoGestionDependenciasYPaquetesConNPM/issues"
+  },
+  "homepage": "https://github.com/josegerstner/platzi-cursoGestionDependenciasYPaquetesConNPM#readme"
+}
