@@ -94,4 +94,51 @@ ___
 >```
 > y reinstalar las dependencias con _npm install_.  
   
+## Seguridad  
+  
+- **npm audit**: audita el proyecto indicando si hay vulnerabilidades.  
+- **npm audit --json**: audita el proyecto indicando si hay vulnerabilidades pero en formato JSON.
+- **npm update paquete --depth numero**: actualiza un paquete con una profundidad de numero.
+  
+___  
+## Crear paquete
+Inicializamos nuestro proyecto con **npm init** y confuguramos todo como queremos.  
+En nuestro ejemplo (random-messages), tenemos una carpeta src con un index.js y otra carpeta bin con un global.js. En el index.js tenemos que tener nuestra funcionalidad exportada (randomMsg):
+```
+module.exports = { randomMsg }
+```
+En el global.js indicaremos que usaremos node. Además iremos a buscar el archivo index.js a la carpeta src y por último ejecutaremos nuestra función:
+```
+#!/usr/bin/env node
+let random = require('../src/index.js')
 
+random.randomMsg()
+```
+  
+En el package.json debemos agregar:
+```
+"bin": {
+    "random-msg": "./bin/global.js"
+  },
+  "preferGlobal": true
+```
+- "bin": indicamos que es el binario del paquete, al instalarlo vendrá a buscar la configuración aquí.  
+- "random-msg": es el comando que utilizaremos en este caso, pero podríamos poner cualquier cosa.
+- "preferGlobal": para indicar que queremos instalar el paquete de manera global en el sistema.
+  
+## Subir paquete a NPM
+> **NOTA: Antes que nada tenemos que tener cuenta en la página de NPM**.  
+  
+- **npm adduser**: loguea un usuario npm en el equipo.
+- **npm publish**: publica el paquete con los datos del npm user (corroborar que no haya otro paquete con el mismo name).
+  
+- **npm version _actualizacion_**: este comando actualiza la versión de nuestro paquete, que está en formato **major**.**minor**.**patch**.
+```node
+// version inicial 1.0.0
+// patch actualiza el último número (1.0.1)
+npm version patch
+// minor actualiza el número del medio (1.1.1)
+npm version minor
+# major actualiza el primer número (2.1.1)
+npm version major
+```
